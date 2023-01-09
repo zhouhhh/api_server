@@ -36,6 +36,10 @@ exports.updatePassword = (req, res) => {
 }
 
 exports.updateAvatar=(req, res)=>{
-    res.cc('updateAvatar ok', 0)
+    db.query('update ev_users set user_pic=? where id=?',[req.body.avatar,req.user.id],(err,results)=>{
+        if (err) return res.cc(err)
+        if (results.affectedRows !== 1) return res.cc('更新头像失败！')
+        res.cc('更新头像成功！', 0)
+    })
 
 }
