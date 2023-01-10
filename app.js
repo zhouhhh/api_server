@@ -30,6 +30,8 @@ const userRouter = require('./router/user')
 app.use('/api', userRouter)
 const userinfoRouter = require('./router/userinfo')
 app.use('/my', userinfoRouter)
+const artcateRouter=require('./router/artcate')
+app.use('/my/article',artcateRouter)
 
 //定义错误级别的中间件
 app.use((err, req, res, next) => {
